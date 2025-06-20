@@ -36,7 +36,10 @@
       cursor: pointer;
 
     }
-
+    .todo-container button:hover {
+      background-color: #5a54e1;
+    }
+  
     .todo-container ul {
       list-style: none;
       padding: 0;
@@ -65,4 +68,7 @@
       cursor: pointer;
       
       
+    }
+    .todo-container ul li button:hover {
+      background-color: #e84118;
     }
