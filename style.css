@@ -34,6 +34,7 @@
       border: none;
       border-radius: 5px;
       cursor: pointer;
+
     }
 
     .todo-container ul {
@@ -41,6 +42,7 @@
       padding: 0;
       margin-top: 20px;
       text-align: left;
+      
     }
 
     .todo-container ul li {
@@ -48,6 +50,10 @@
       margin-bottom: 10px;
       padding: 8px;
       border-radius: 5px;
+        display: flex;              /* Add this */
+      align-items: center;        /* Add this */
+      justify-content: space-between;
+      
     }
     .todo-container ul li button {
       float: right;
@@ -57,4 +63,6 @@
       padding: 5px 10px;
       border-radius: 5px;
       cursor: pointer;
+      
+      
     }
