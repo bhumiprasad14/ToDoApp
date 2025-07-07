@@ -45,21 +45,28 @@ function SaveData() {
   const todos = [];
   const items = todolist.getElementsByTagName('li');
   for (let i = 0; i < items.length; i++) {
-    todos.push(items[i].querySelector('span').textContent.trim());
+    const checkbox = items[i].querySelector('input[type="checkbox"]');
+    const span = items[i].querySelector('span');
+    todos.push({
+      text: span.textContent.trim(),
+      checked: checkbox.checked
+    });
   }
   localStorage.setItem('todos', JSON.stringify(todos));
 }
 
 function LoadData() {
   const todos = JSON.parse(localStorage.getItem('todos')) || [];
-  todos.forEach(function(task) {
+  todos.forEach(function(todo) {
     const li = document.createElement('li');
     const checkbox = document.createElement('input');
     checkbox.type = 'checkbox';
+    checkbox.checked = !!todo.checked; // restore checked state
+    checkbox.addEventListener('change', SaveData);
     li.appendChild(checkbox);
 
     const span = document.createElement('span');
-    span.textContent = task;
+    span.textContent = todo.text;
     li.appendChild(span);
 
     const del = document.createElement('button');
